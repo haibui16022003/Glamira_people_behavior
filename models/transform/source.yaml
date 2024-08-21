@@ -1,0 +1,9 @@
+sources:
+  - name: glamira_raw
+    database: active-district-432614-a7
+
+    tables:
+      - name: summary
+      - name: product
+      - name: location
+      - name: currency_exchange
