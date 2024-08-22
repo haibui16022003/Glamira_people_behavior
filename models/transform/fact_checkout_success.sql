@@ -23,7 +23,7 @@ transformed_data AS (
         MAX(CASE WHEN option.option_label = 'diamond' THEN option.value_label END) AS diamond_value
     FROM raw_checkout_success,
     UNNEST(option) AS option
-    GROUP BY 1, 2, 3, 4, 5, 6
+    GROUP BY time_stamp, ip, product_id, price, amount, currency
 ),
 formatted_alloy_names AS (
     SELECT

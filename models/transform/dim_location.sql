@@ -1,5 +1,5 @@
 SELECT DISTINCT
-    {{ dbt_utils.generate_surrogate_key(['ip', 'country_short', 'region', 'city', 'zipcode']) }} AS location_key,
+    {{ dbt_utils.generate_surrogate_key(['ip']) }} AS location_key,
     ip,
     CASE WHEN country_short = '-' THEN 'Unknown' ELSE country_short END AS country_short,
     CASE WHEN country_long = '-' THEN 'Unknown' ELSE country_long END AS country_long,

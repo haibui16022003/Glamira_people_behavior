@@ -1,11 +1,13 @@
 WITH date_cte AS (
     SELECT DISTINCT
         time_stamp
-    FROM {{source('glamira_raw','summary')}}
+    FROM {{ source('glamira_raw', 'summary') }}
 )
 
 SELECT
-    time_stamp AS date_key,
+    {{ dbt_utils.generate_surrogate_key(['EXTRACT(DATE FROM TIMESTAMP_SECONDS(time_stamp))']) }} AS date_key, 
+    EXTRACT(DATE FROM TIMESTAMP_SECONDS(time_stamp)) AS date_time,
+    time_stamp,
     EXTRACT(DATE FROM TIMESTAMP_SECONDS(time_stamp)) AS full_date,
     EXTRACT(YEAR FROM TIMESTAMP_SECONDS(time_stamp)) AS year,
     EXTRACT(MONTH FROM TIMESTAMP_SECONDS(time_stamp)) AS month,
