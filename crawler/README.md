@@ -12,20 +12,7 @@ This project is a web scraping tool designed to extract product URLs from a site
 - [License](#license)
 
 ## Setup
-
-1. **Clone the repository**:
-    ```bash
-    git clone <repository-url>
-    cd <repository-name>
-    ```
-
-2. **Install the required dependencies**:
-    Make sure you have `pip` installed, then run:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3. **Verify project files and directories**:
+**Verify project files and directories**:
     Ensure the following files are present:
     - `crawler.py` (contains the `Crawler` class)
     - `crawler.log` (log file created automatically)
